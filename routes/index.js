@@ -116,4 +116,13 @@ router.post('/posts/:post/comments', function (req, res, next) {
   });
 });
 
+router.delete('/posts/:post', function (req, res, next) {
+  req.post.remove(function (err) {
+    if (err) {
+      next(err);
+    }
+    
+    res.json({});
+  });
+});
 module.exports = router;

@@ -5,7 +5,10 @@
 		<script src="/bower_components/angular/angular.min.js"></script>
 		<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 		<script src="/javascripts/angularApp.js"></script>
-		<style> .glyphicon-thumbs-up { cursor: pointer } </style>
+		<style>
+			.glyphicon-thumbs-up { cursor: pointer }
+			.glyphicon-remove { cursor: pointer } 
+		</style>
 	</head>
 	<body ng-app="flapperNews" ng-controller="MainCtrl">
 		<div class="row">
@@ -27,9 +30,12 @@
 					<span ng-hide="post.link">
 						{{post.title}}
 					</span>
+					|
 					<span>
-				  		<a href="#/posts/{{$index}}">Comments</a>
+				  		<a href="#/posts/{{post._id}}">Comments</a>
 					</span>
+					|
+					<span class="glyphicon glyphicon-remove" ng-click="deletePost(post)"></span>
 				</span>
 			</div>
 			<form ng-submit="addPost()" style="margin-top:30px">
